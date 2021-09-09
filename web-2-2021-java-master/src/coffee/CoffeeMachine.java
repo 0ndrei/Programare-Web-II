@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class CoffeeMachine {
     private Boolean pay(Integer banknoteNominal){
-        Scanner cm = new Scanner(System.in);
+        Scanner bN = new Scanner(System.in);
 
-        System.out.print("Please chose option:");
-        System.out.println("1.5");
-        System.out.println("2.10");
+        System.out.print("Insert the banknote:\n");
+        System.out.println("5 euro");
+        System.out.println("10 euro");
 
-        banknoteNominal = cm.nextInt();
+        banknoteNominal = bN.nextInt();
 
         if ( banknoteNominal == 5 || banknoteNominal == 10) {
             return true;
@@ -19,13 +19,13 @@ public class CoffeeMachine {
     }
 
     private String choose(Integer option){
-        Scanner cm = new Scanner(System.in);
+        Scanner op = new Scanner(System.in);
 
-        System.out.print("Please chose option:");
+        System.out.print("Please chose option:\n");
         System.out.println("1.Coffee");
         System.out.println("2.Cappuccino");
 
-        option = cm.nextInt();
+        option = op.nextInt();
 
        if (option == 1) {
            return "Coffee";
@@ -36,13 +36,13 @@ public class CoffeeMachine {
     }
 
     private String milk(Integer milkoption){
-        Scanner cm = new Scanner(System.in);
+        Scanner mop = new Scanner(System.in);
 
-        System.out.print("Please chose milkoption:");
+        System.out.print("You want milk?\n");
         System.out.println("1.Yes");
         System.out.println("2.No");
 
-        milkoption = cm.nextInt();
+        milkoption = mop.nextInt();
 
         if (milkoption == 1) {
             return "Yes";
@@ -62,11 +62,10 @@ public class CoffeeMachine {
 
     public void prepare(){
         String coffeeType = "";
-        this.showInfo("Please insert banknote");
+        String milk = "";
         if(this.pay(10)){
-            this.showInfo("Please chose option");
             coffeeType = this.choose(2);
-            coffeeType = this.milk(2);
+            milk = this.milk(2);
             this.showInfo(
                     "You choose is: " + coffeeType
             );
